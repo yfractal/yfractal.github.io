@@ -97,6 +97,9 @@ GEM
       jekyll-seo-tag (~> 2.1)
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
+    plainwhite (0.13)
+      jekyll (>= 3.7.3)
+      jekyll-seo-tag (>= 2.1.0)
     public_suffix (7.0.0)
     rake (13.3.1)
     rb-fsevent (0.11.2)
@@ -167,6 +170,7 @@ DEPENDENCIES
   jekyll (~> 4.4.1)
   jekyll-feed (~> 0.12)
   minima (~> 2.5)
+  plainwhite
   tzinfo (>= 1, < 3)
   tzinfo-data
   wdm (~> 0.1)
@@ -216,6 +220,7 @@ CHECKSUMS
   mercenary (0.4.0) sha256=b25a1e4a59adca88665e08e24acf0af30da5b5d859f7d8f38fba52c28f405138
   minima (2.5.2) sha256=9c434e3b7bc4a0f0ab488910438ed3757a0502ff1060d172f361907fc38aa45a
   pathutil (0.16.2) sha256=e43b74365631cab4f6d5e4228f812927efc9cb2c71e62976edcb252ee948d589
+  plainwhite (0.13) sha256=de8264745d195b1928247d04b3d13325e8b2a1c966cc67e6fe20173bb689d2c2
   public_suffix (7.0.0) sha256=f7090b5beb0e56f9f10d79eed4d5fbe551b3b425da65877e075dad47a6a1b095
   rake (13.3.1) sha256=8c9e89d09f66a26a01264e7e3480ec0607f0c497a861ef16063604b1b08eb19c
   rb-fsevent (0.11.2) sha256=43900b972e7301d6570f64b850a5aa67833ee7d87b458ee92805d56b7318aefe
