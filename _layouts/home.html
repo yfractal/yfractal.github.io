@@ -11,7 +11,11 @@ layout: default
 {%- if site.posts.size > 0 -%}
   <ul class="posts">
     <li class="posts-labelgroup" id="posts-labelgroup">
-      <h1 id="posts-label"><a href="{{ "/" | relative_url }}">posts</a></h1>
+      <h1 id="posts-label">
+        <a class="posts-home-link" href="{{ "/" | relative_url }}">posts</a>
+        <span class="posts-label-sep">·</span>
+        <a class="posts-speaking-link" href="{{ "/speaking/" | relative_url }}">Talks</a>
+      </h1>
       {% if site.plainwhite.search %}
       <div class="search-container">
         <div class="search-section">
@@ -55,4 +59,3 @@ layout: default
 		<use xlink:href="{{ '/assets/minima-social-icons.svg#rss' | relative_url }}"></use>
 	</svg><a href="{{ "/feed.xml" | relative_url }}">Subscribe</a></p> -->
 {%- endif -%}
-

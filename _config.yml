@@ -43,6 +43,15 @@ plainwhite:
   social_links:
     twitter: yfractal
     github: yfractal
+  speaking:
+    - title: "SDB: Efficient Ruby Stack Scanning Without the GVL @ RubyKaigi 2025"
+      url: "https://rubykaigi.org/2025/presentations/yfractal.html"
+    - title: "SDB: a New Ruby Stack Profiling Tool @ RubyConf China 2024"
+      url: "https://www.youtube.com/watch?v=edbJLlX3tZE&t=1s"
+    - title: "Erlang message passing brief introduction @ Beijing Elixir Meetup 2020"
+      url: "https://github.com/yfractal/blog/blob/master/slides/erlang-message-passing.key"
+    - title: "并发调度简介：从 Redis 到 Erlang @ RubyConf China 2020"
+      url: "https://www.youtube.com/watch?v=8vQ-8wzBdBU"
 
 # Exclude from processing.
 # The following items will not be processed, by default.

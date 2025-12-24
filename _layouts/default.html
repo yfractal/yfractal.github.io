@@ -123,10 +123,10 @@
       {%- endif -%}
 
       {%- comment -%}
-      Copy from plainwhite and this part is added
       Categories list under social links (sidebar). Links always go to the home page anchors.
+      Only show this on the home/posts page to avoid cluttering other pages (e.g. /speaking/).
       {%- endcomment -%}
-      {%- if site.plainwhite.show_categories_in_sidebar != false -%}
+      {%- if page.layout == "home" and site.plainwhite.show_categories_in_sidebar != false -%}
       {%- assign category_array = "" | split: "" -%}
       {%- for category in site.categories -%}
         {%- assign category_name = category[0] -%}
@@ -205,8 +205,10 @@
   <script src="{{ "/assets/js/search.js" | relative_url }}"></script>
   {% endif %}
 
-  {%- comment -%}Category filtering script{%- endcomment -%}
+  {%- comment -%}Category filtering script (home/posts page only){%- endcomment -%}
+  {% if page.layout == "home" %}
   <script src="{{ "/assets/js/category-filter.js" | relative_url }}"></script>
+  {% endif %}
 </body>
 
 </html>

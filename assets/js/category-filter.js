@@ -20,14 +20,9 @@
       // Update label to show "posts" (no category filter)
       var postsLabel = document.getElementById('posts-label');
       if (postsLabel) {
-        var link = postsLabel.querySelector('a');
-        if (link) {
-          link.textContent = 'posts';
-        } else {
-          // Fallback: create link if it doesn't exist
-          var rootUrl = document.querySelector('base') ? document.querySelector('base').href : '/';
-          postsLabel.innerHTML = '<a href="' + rootUrl + '">posts</a>';
-        }
+        // Only update the "posts" link text; never rewrite innerHTML (so we don't delete the "speaking" link)
+        var link = postsLabel.querySelector('a.posts-home-link');
+        if (link) link.textContent = 'Posts';
       }
       return;
     }
@@ -40,7 +35,7 @@
         var categoryList = categories.split(',').map(function(cat) {
           return cat.trim().toLowerCase();
         });
-        
+
         if (categoryList.indexOf(hash.toLowerCase()) !== -1) {
           item.style.display = '';
           hasVisiblePosts = true;
@@ -58,26 +53,12 @@
       }
     });
 
-    // Update the posts label to show filtered category
+    // Keep the posts label as "posts" (don't show category name)
     var postsLabel = document.getElementById('posts-label');
     if (postsLabel) {
-      var link = postsLabel.querySelector('a');
-      if (link) {
-        // Update the link text while preserving the link structure
-        if (hash) {
-          link.textContent = 'posts: ' + hash;
-        } else {
-          link.textContent = 'posts';
-        }
-      } else {
-        // Fallback: if no link exists, create one
-        var rootUrl = document.querySelector('base') ? document.querySelector('base').href : '/';
-        if (hash) {
-          postsLabel.innerHTML = '<a href="' + rootUrl + '">posts: ' + hash + '</a>';
-        } else {
-          postsLabel.innerHTML = '<a href="' + rootUrl + '">posts</a>';
-        }
-      }
+      // Only update the "posts" link text; never rewrite innerHTML (so we don't delete the "speaking" link)
+      var link = postsLabel.querySelector('a.posts-home-link');
+      if (link) link.textContent = 'Posts';
     }
   }
 
@@ -91,4 +72,3 @@
   // Run when hash changes
   window.addEventListener('hashchange', filterPostsByCategory);
 })();
-

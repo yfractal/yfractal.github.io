@@ -2,7 +2,7 @@
 layout: post
 title: "The Tenacious Brain: How the Anterior Mid-Cingulate Contributes to Achieving Goals 阅读笔记"
 date: 2025-10-24 00:00:00 +0800
-categories: neuroscience learning
+categories: neuroscience learning paper-reading
 ---
 
 # The Tenacious Brain: How the Anterior Mid-Cingulate Contributes to Achieving Goals 阅读笔记
