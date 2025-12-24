@@ -1,0 +1,5 @@
+/* Override theme post title size */
+
+.post-title {
+  font-size: 25px;
+}

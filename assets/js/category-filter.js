@@ -17,6 +17,18 @@
       postItems.forEach(function(item) {
         item.style.display = '';
       });
+      // Update label to show "posts" (no category filter)
+      var postsLabel = document.getElementById('posts-label');
+      if (postsLabel) {
+        var link = postsLabel.querySelector('a');
+        if (link) {
+          link.textContent = 'posts';
+        } else {
+          // Fallback: create link if it doesn't exist
+          var rootUrl = document.querySelector('base') ? document.querySelector('base').href : '/';
+          postsLabel.innerHTML = '<a href="' + rootUrl + '">posts</a>';
+        }
+      }
       return;
     }
 
@@ -48,10 +60,24 @@
 
     // Update the posts label to show filtered category
     var postsLabel = document.getElementById('posts-label');
-    if (postsLabel && hash) {
-      postsLabel.textContent = 'posts: ' + hash;
-    } else if (postsLabel) {
-      postsLabel.textContent = 'posts';
+    if (postsLabel) {
+      var link = postsLabel.querySelector('a');
+      if (link) {
+        // Update the link text while preserving the link structure
+        if (hash) {
+          link.textContent = 'posts: ' + hash;
+        } else {
+          link.textContent = 'posts';
+        }
+      } else {
+        // Fallback: if no link exists, create one
+        var rootUrl = document.querySelector('base') ? document.querySelector('base').href : '/';
+        if (hash) {
+          postsLabel.innerHTML = '<a href="' + rootUrl + '">posts: ' + hash + '</a>';
+        } else {
+          postsLabel.innerHTML = '<a href="' + rootUrl + '">posts</a>';
+        }
+      }
     }
   }
 

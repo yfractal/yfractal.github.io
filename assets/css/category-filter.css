@@ -26,3 +26,40 @@
   opacity: 0;
 }
 
+/* Style the posts label link */
+#posts-label a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.2s ease;
+}
+
+#posts-label a:hover {
+  color: #0a59b0;
+}
+
+/* Layout override (plainwhite theme):
+ * Make the left "about" column match the height of the right "content" column on desktop.
+ * The theme uses `position: fixed` + `height: 100vh` for `.about`, which prevents equal-height columns.
+ */
+@media screen and (min-width: 769px) {
+  main.container {
+    align-items: stretch;
+  }
+
+  main.container .about {
+    position: static;
+    height: auto;
+    padding-bottom: 0;
+    justify-content: flex-start;
+    padding-top: 8vh;
+    flex: 0 0 220px;
+    max-width: 280px;
+  }
+
+  main.container .content {
+    margin-left: 0;
+    max-width: none;
+    width: auto;
+    flex: 1 1 auto;
+  }
+}

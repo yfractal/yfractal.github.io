@@ -127,13 +127,22 @@
       Categories list under social links (sidebar). Links always go to the home page anchors.
       {%- endcomment -%}
       {%- if site.plainwhite.show_categories_in_sidebar != false -%}
-      {%- assign sorted_categories = site.categories | sort -%}
-      {%- if sorted_categories and sorted_categories != empty -%}
+      {%- assign category_array = "" | split: "" -%}
+      {%- for category in site.categories -%}
+        {%- assign category_name = category[0] -%}
+        {%- assign posts_count = category[1] | size -%}
+        {%- assign padded_count = posts_count | prepend: "00000" | slice: -5, 5 -%}
+        {%- assign category_entry = padded_count | append: "|" | append: category_name -%}
+        {%- assign category_array = category_array | push: category_entry -%}
+      {%- endfor -%}
+      {%- assign sorted_category_array = category_array | sort | reverse -%}
+      {%- if sorted_category_array and sorted_category_array != empty -%}
       <div class="about-footer {{condensed_class}} categories-summary">
         <ul>
-          {%- for category in sorted_categories -%}
-            {%- assign category_name = category[0] -%}
-            {%- assign posts_in_category = category[1] -%}
+          {%- for category_entry in sorted_category_array -%}
+            {%- assign parts = category_entry | split: "|" -%}
+            {%- assign category_name = parts[1] -%}
+            {%- assign posts_in_category = site.categories[category_name] -%}
             <li>
               <a href="{{ '/' | relative_url }}#{{ category_name | slugify }}">
                 {{ category_name }} ({{ posts_in_category | size }})
@@ -156,8 +165,6 @@
         </ul>
       </nav>
       {%- endif -%}
-      <p class="about-footer {{condensed_class}}">&copy;
-        {{ "now" | date: "%Y" }}</p>
       {%- if site.plainwhite.dark_mode -%}
       <div class="about-footer {{condensed_class}}">
         <p>Dark Mode
