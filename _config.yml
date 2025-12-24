@@ -37,7 +37,7 @@ plugins:
 
 plainwhite:
   name: Mike Yang
-  tagline: Backend Developer
+  tagline: Backend Developer, passionate about distributed systems, observability and AI. Beyond programming, interested in neuroscience and sports, enjoys parkour and bouldering.
   portfolio_image:  "assets/portfolio.jpg"
   date_format: "%b %-d, %Y"
   social_links:
