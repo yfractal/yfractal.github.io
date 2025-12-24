@@ -135,7 +135,7 @@
             {%- assign category_name = category[0] -%}
             {%- assign posts_in_category = category[1] -%}
             <li>
-              <a href="{{ '/' | relative_url }}#category-{{ category_name | slugify }}">
+              <a href="{{ '/' | relative_url }}#{{ category_name | slugify }}">
                 {{ category_name }} ({{ posts_in_category | size }})
               </a>
             </li>
@@ -197,6 +197,9 @@
   <script src="{{ "/assets/js/simple-jekyll-search.min.js" | relative_url }}"></script>
   <script src="{{ "/assets/js/search.js" | relative_url }}"></script>
   {% endif %}
+
+  {%- comment -%}Category filtering script{%- endcomment -%}
+  <script src="{{ "/assets/js/category-filter.js" | relative_url }}"></script>
 </body>
 
 </html>
